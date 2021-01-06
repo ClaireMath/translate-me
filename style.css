@@ -1,6 +1,21 @@
+* {
+    margin: 0px;
+    padding: 0px;
+    box-sizing:  border-box;
+}
+
 body {
   background-color: #ccdcfc;
+  padding: 5px;
   height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+header {
+    width: 100%;
 }
 
 h1 {
@@ -32,13 +47,16 @@ h1 {
   -ms-border-radius: 15px;
   -o-border-radius: 15px;
 }
+.micro {
+    margin-top: 20px;
+}
 .ctnTextArea {
   width: 80%;
   height: 200px;
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
-  align-items: space-between;
+  justify-content: space-around;
+  align-items: center;
 }
 
 .areaOfTxt {
