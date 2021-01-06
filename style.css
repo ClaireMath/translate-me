@@ -1,3 +1,88 @@
 body {
-    background-color: aquamarine;
+  background-color: #ccdcfc;
+  height: 100vh;
+}
+
+h1 {
+    font-family : 'Playfair Display', serif;
+    color : white;
+    font-size : 45px;
+    font-weight : lighter;
+}
+
+.ctn {
+  display: flex;
+  height: 100vh;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+/* h1 {
+    font-size: 1rem;
+} */
+.img2 {
+  width: 15%;
+  border-radius: 15px;
+}
+.logo {
+  width: 15%;
+  border-radius: 15px;
+  -webkit-border-radius: 15px;
+  -moz-border-radius: 15px;
+  -ms-border-radius: 15px;
+  -o-border-radius: 15px;
+}
+.ctnTextArea {
+  width: 80%;
+  height: 200px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: space-between;
+}
+
+.areaOfTxt {
+  width: 40%;
+  height: 60%;
+  border-width: 2px;
+  border-style: solid;
+  border-color: white;
+  border-radius: 10px;
+}
+
+.ctn-img {
+  width: 80%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-end;
+}
+
+.triangle-right {
+  width: 0;
+  height: 0;
+  border-top: 5px solid transparent;
+  border-left: 10px solid white;
+  border-bottom: 5px solid transparent;
+}
+
+hr {
+  border: 1px solid white;
+  color: white;
+  overflow: visible;
+  text-align: center;
+  /* width: 60%; */
+}
+
+.triangle-left {
+  width: 0;
+  height: 0;
+  border-top: 5px solid transparent;
+  border-right: 10px solid white;
+  border-bottom: 5px solid transparent;
+}
+
+.arrowsline {
+  display: flex;
+  flex-direction: row;
 }
