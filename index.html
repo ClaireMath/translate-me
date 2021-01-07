@@ -7,7 +7,11 @@
   <link rel="stylesheet" href="style.css">
   <link rel="preconnect" href="https://fonts.gstatic.com">
 <link href="https://fonts.googleapis.com/css2?family=Bitter:wght@100&family=Playfair+Display&display=swap" rel="stylesheet">
-  <script src="index.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs"></script> <!--bibliothèque TensorFlow -->
+<script src="https://cdn.jsdelivr.net/npm/@tensorflow-models/speech-commands"></script> <!--modele de commandes vocales pré-entrainé -->
+  </head>
+  <body>
+  
   <title>TranslateMe</title>
 </head>
 
@@ -21,7 +25,24 @@
 
     <h1>OBTENEZ UNE TRADUCTION VOCALE GRATUITE ET INSTANTANNÉE !</h1>
 
-    <img src="/img/micro.png" alt="micro" width="4%" class="micro">
+<!-- ajout trois boutons à notre interface utilisateur intitulés «Gauche», «Droite» et «Bruit», correspondant aux trois commandes que nous voulons que notre modèle reconnaisse. -->
+<!-- Appuyer sur ces boutons pour appeler notre collect()fonction nouvellement ajoutée , qui crée des exemples de formation pour notre modèle.-->
+    <button id="left" onmousedown="collect(0)" onmouseup="collect(null)">Left</button>
+    <button id="right" onmousedown="collect(1)" onmouseup="collect(null)">Right</button>
+    <button id="noise" onmousedown="collect(2)" onmouseup="collect(null)">Noise</button>
+    <button id="train" onclick="train()">Train</button>
+    <button id="listen" onclick="listen()">Listen</button>
+<input type="range" id="output" min="0" max="10" step="0.1">
+
+<!-- Afin de tester appuyer 3 à 4 sec sur les boutons pour collecter les données PUIS
+apppuyer sur TRAIN pour entrainer le modèl : la precision du model devrait depasser 90% sinon continuer d'entrainer le model
+Une fois l'entrainement terminé, appuyer sur LISTEN pour faire des predictions et controler le curseur -->
+
+
+
+    <div id="console"></div> <!-- ID CONSOLE = balise qui sera utilisé pour afficher la sortie du modèle -->
+
+    <img src="/img/micro.png" alt="micro" width="4%" class="micro">  
 
 
     <div class="ctn-translate">
@@ -70,6 +91,8 @@
   <!-- <div class ="translate"></div> -->
 
 
+
+  <script src="index.js"></script>
 </body>
 
 </html>
