@@ -6,93 +6,99 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="style.css">
   <link rel="preconnect" href="https://fonts.gstatic.com">
-<link href="https://fonts.googleapis.com/css2?family=Bitter:wght@100&family=Playfair+Display&display=swap" rel="stylesheet">
-<script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs"></script> <!--bibliothèque TensorFlow -->
-<script src="https://cdn.jsdelivr.net/npm/@tensorflow-models/speech-commands"></script> <!--modele de commandes vocales pré-entrainé -->
-  </head>
-  <body>
-  
-  <title>TranslateMe</title>
+  <link href="https://fonts.googleapis.com/css2?family=Bitter:wght@100&family=Playfair+Display&display=swap"
+    rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs"></script>
+  <!--bibliothèque TensorFlow -->
+  <script src="https://cdn.jsdelivr.net/npm/@tensorflow-models/speech-commands"></script>
+  <!--modele de commandes vocales pré-entrainé -->
 </head>
 
 <body>
 
-  <header>
-    <img class="logo" src="/img/logo.png" alt="logo translateMe">
-  </header>
+  <title>TranslateMe</title>
+  </head>
 
-  <div class="ctn">
+  <body>
 
-    <h1>OBTENEZ UNE TRADUCTION VOCALE GRATUITE ET INSTANTANNÉE !</h1>
+    <header>
+      <img class="logo" src="/img/logo.png" alt="logo translateMe">
+    </header>
 
-<!-- ajout trois boutons à notre interface utilisateur intitulés «Gauche», «Droite» et «Bruit», correspondant aux trois commandes que nous voulons que notre modèle reconnaisse. -->
-<!-- Appuyer sur ces boutons pour appeler notre collect()fonction nouvellement ajoutée , qui crée des exemples de formation pour notre modèle.-->
-    <button id="left" onmousedown="collect(0)" onmouseup="collect(null)">Left</button>
-    <button id="right" onmousedown="collect(1)" onmouseup="collect(null)">Right</button>
-    <button id="noise" onmousedown="collect(2)" onmouseup="collect(null)">Noise</button>
-    <button id="train" onclick="train()">Train</button>
-    <button id="listen" onclick="listen()">Listen</button>
-<input type="range" id="output" min="0" max="10" step="0.1">
+    <div class="ctn">
 
-<!-- Afin de tester appuyer 3 à 4 sec sur les boutons pour collecter les données PUIS
+      <h1>OBTENEZ UNE TRADUCTION VOCALE GRATUITE ET INSTANTANNÉE !</h1>
+
+      <!-- ajout trois boutons à notre interface utilisateur intitulés «Gauche», «Droite» et «Bruit», correspondant aux trois commandes que nous voulons que notre modèle reconnaisse. -->
+      <!-- Appuyer sur ces boutons pour appeler notre collect()fonction nouvellement ajoutée , qui crée des exemples de formation pour notre modèle.-->
+      <button id="left" onmousedown="collect(0)" onmouseup="collect(null)">Left</button>
+      <button id="right" onmousedown="collect(1)" onmouseup="collect(null)">Right</button>
+      <button id="noise" onmousedown="collect(2)" onmouseup="collect(null)">Noise</button>
+      <button id="train" onclick="train()">Train</button>
+      <button id="listen" onclick="listen()">Listen</button>
+      <input type="range" id="output" min="0" max="10" step="0.1">
+
+      <!-- Afin de tester appuyer 3 à 4 sec sur les boutons pour collecter les données PUIS
 apppuyer sur TRAIN pour entrainer le modèl : la precision du model devrait depasser 90% sinon continuer d'entrainer le model
 Une fois l'entrainement terminé, appuyer sur LISTEN pour faire des predictions et controler le curseur -->
 
 
 
-    <div id="console"></div> <!-- ID CONSOLE = balise qui sera utilisé pour afficher la sortie du modèle -->
+      <div id="console"></div> <!-- ID CONSOLE = balise qui sera utilisé pour afficher la sortie du modèle -->
 
-    <img src="/img/micro.png" alt="micro" width="4%" class="micro">  
+      <img src="/img/micro.png" alt="micro" width="4%" class="micro">
 
 
-    <div class="ctn-translate">
-      <div class="translate">FRANÇAIS <div class="arrow-down"></div></div> 
-      <div class="translate">ANGLAIS<div class="arrow-down"></div></div> 
-      </div>
-    
-    <div class="ctnTextArea">
-      
-      <div class="areaOfTxt">
-         <p class="textSaid"></p>
+      <div class="ctn-translate">
+        <div class="translate">FRANÇAIS <div class="arrow-down"></div>
+        </div>
+        <div class="translate">ANGLAIS<div class="arrow-down"></div>
+        </div>
       </div>
 
-      <!-- <div class="arrow"> -->
-    <!-- <div class="ctn-arrow">
+      <div class="ctnTextArea">
+
+        <div class="areaOfTxt">
+          <p class="textSaid"></p>
+        </div>
+
+        <!-- <div class="arrow"> -->
+        <!-- <div class="ctn-arrow">
 <img class="arrow" alt="arrow" src="dlf.pt-white-png-icons-523524.png"></div> -->
-    
-      <!-- <div class="arrowsline"> -->
+
+        <!-- <div class="arrowsline"> -->
         <!-- <div class="tr-right"> -->
-      <!-- <div class="triangle-left"></div> 
+        <!-- <div class="triangle-left"></div> 
       <div class="line"></div>   
   <div class="triangle-right"></div>
    </div>-->
-<!--</div> -->
+        <!--</div> -->
 
 
-<!-- <div class="content">
+        <!-- <div class="content">
   <div class="arrow">
     <div class="line"></div>
     <div class="point"></div>
   </div>
 </div> -->
 
-      <div class="areaOfTxt">
-        <p class="textTranslated"></p>
+        <div class="areaOfTxt">
+          <p class="textTranslated"></p>
+        </div>
       </div>
-    </div>
 
     </div>
 
-    <dv class= "ctn-img"> 
+    <dv class="ctn-img">
       <img src="/img/man.png" alt="man" class="img2">
- </div>
+      </div>
 
-</div>
-  <!-- <div class ="translate"></div> -->
+      </div>
+      <!-- <div class ="translate"></div> -->
 
 
 
-  <script src="index.js"></script>
-</body>
+      <script src="index.js"></script>
+  </body>
 
 </html>
