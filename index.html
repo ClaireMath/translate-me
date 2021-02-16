@@ -8,10 +8,10 @@
   <link rel="preconnect" href="https://fonts.gstatic.com">
   <link href="https://fonts.googleapis.com/css2?family=Bitter:wght@100&family=Playfair+Display&display=swap"
     rel="stylesheet">
-    <!-- <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs"></script> -->
-    <!--bibliothèque TensorFlow -->
-    <!-- <script src="https://cdn.jsdelivr.net/npm/@tensorflow-models/speech-commands"></script> -->
-    <!--modele de commandes vocales pré-entrainé -->
+  <!-- <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs"></script> -->
+  <!--bibliothèque TensorFlow -->
+  <!-- <script src="https://cdn.jsdelivr.net/npm/@tensorflow-models/speech-commands"></script> -->
+  <!--modele de commandes vocales pré-entrainé -->
 </head>
 
 <body>
@@ -28,19 +28,20 @@
     <div class="ctn">
 
       <h1>OBTENEZ UNE TRADUCTION VOCALE GRATUITE ET INSTANTANNÉE !</h1>
-
-      <img src="./img/micro.png" alt="micro" width="4%" id="micro" class="micro">
-      <img src="./img/crossedMike.png" alt="micro" width="4%" id="microStop" class="micro">
-      
-      <button id="playButton">Play</button>
-      <button id="downloadButton">Download</button>
-
+      <div class="divMike">
+        <img src="./img/micro.png" alt="micro" id="micro" class="micro">
+        <img src="./img/crossedMike.png" alt="micro" id="microStop" class="micro">
+      </div>
+      <div class="divMike">
+        <button class="gb gb-bordered1 gb-rounded hover-fill gb2" id="playButton">PLAY</button>
+        <button id="downloadButton" class="gb gb-bordered2 gb-rounded hover-fill gb1">DOWNLOAD</button>
+      </div>
       <div class="ctn-translate">
-    
+
         <p>FRANÇAIS</p>
-      
+
         <p>ANGLAIS</p>
- 
+
       </div>
 
       <div class="ctnTextArea">
@@ -48,26 +49,6 @@
         <div class="areaOfTxt">
           <p class="textSaid"></p>
         </div>
-
-        <!-- <div class="arrow"> -->
-        <!-- <div class="ctn-arrow">
-<img class="arrow" alt="arrow" src="dlf.pt-white-png-icons-523524.png"></div> -->
-
-        <!-- <div class="arrowsline"> -->
-        <!-- <div class="tr-right"> -->
-        <!-- <div class="triangle-left"></div> 
-      <div class="line"></div>   
-  <div class="triangle-right"></div>
-   </div>-->
-        <!--</div> -->
-
-
-        <!-- <div class="content">
-  <div class="arrow">
-    <div class="line"></div>
-    <div class="point"></div>
-  </div>
-</div> -->
 
         <div class="areaOfTxt">
           <p class="textTranslated"></p>
@@ -82,12 +63,8 @@
 
       </div>
       <!-- <div class ="translate"></div> -->
+      <!-- <script src="index.js"></script> -->
 
-
-
-
-      <script src="index.js"></script>
-      
       <script src="./micro/micro.js"></script>
   </body>
 

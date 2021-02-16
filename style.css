@@ -21,9 +21,10 @@ header {
 h1 {
   font-family: "Bitter", serif;
   color: white;
-  font-size: 2.5rem;
+  font-size: 2.4rem;
   /* font-weight: lighter; */
   text-align: center;
+  width: 100%;
 }
 
 .ctn {
@@ -36,10 +37,6 @@ h1 {
 
 .img2 {
   width: 13%;
-  /* position: absolute;
-  top: 40%;
-  right: 5%; */
-  /* z-index: -1; */
 }
 
 .logo {
@@ -49,6 +46,14 @@ h1 {
 
 .micro {
   margin-top: 20px;
+  width: 25%;
+}
+.divMike {
+  display: flex;
+  /* height: 50px; */
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .ctnTextArea {
@@ -78,65 +83,12 @@ h1 {
   /* z-index: -1; */
 }
 
-/* .ctn-arrow {
-height: 55%;
-width: 15%;
-}
-
-.arrow {
-  height: 100%;
-  width: 100%;
-  position: relative;
-  margin: 0 auto;
-  width: 20px;
-} */
-
-/*.arrow .line {
-  border: 2px solid white;
-  border-color: transparent transparent transparent white;
-  height: 184px;
-  transform: rotate(90deg);
-  position: absolute;
-  top: 50px;
-  
-} */
-
-/* .arrow .point {
-  position: absolute;
-  left: 102px;
-  top: 163px;
-} */
-
-/* .arrow .point:before, .arrow .point:after {
-  border: 1px solid white;
-  height: 25px;
-  content: "";
-  position: absolute;
-} */
-
-/* .arrow .point:before {
-  top: -25px;
-  transform:rotate(-115deg);
-  -webkit-transform:rotate(-132deg);
-  -moz-transform:rotate(-115deg);
-  -ms-transform: rotate(-115deg);
-}
-
-.arrow .point:after {
-  top: -43px;
-  left: 1px;
-  transform:rotate(138deg);
-  -webkit-transform: rotate(132deg);
-  -moz-transform:rotate(138deg);
-  -ms-transform: rotate(138deg);
-} */
-
 .ctn-translate {
   width: 30%;
   height: 100px;
   display: flex;
   font-family: "Bitter", serif;
-   font-size:12em;
+  font-size: 12em;
   font-weight: bolder;
   color: white;
   font-size: 100%;
@@ -145,14 +97,61 @@ width: 15%;
 }
 .ctn-translate p {
   font-size: 1rem;
-  
 }
 
+.gb {
+  padding: 8px 20px;
+  margin-right: 25px;
+  cursor: pointer;
+  font-size: 18px;
+  border-radius: 4px;
+  border: none;
+  margin-top: 15px;
+}
 
-/* .arrow-down {
-  width: 0;
-  height: 0;
-  border-right: 10px solid transparent;
-  border-left: 10px solid transparent;
-  border-top: 20px solid white;
-} */
+.gb-bordered {
+  padding: 6px 20px;
+}
+
+.gb-rounded {
+  border-radius: 50px;
+  color: beige;
+}
+
+.gb1 {
+  background-image: linear-gradient(
+    45deg,
+    rgb(107, 41, 176) 0%,
+    rgb(107, 41, 176) 26%,
+    rgb(201, 24, 187) 26%,
+    rgb(201, 24, 187) 45%,
+    rgb(224, 20, 189) 45%,
+    rgb(224, 20, 189) 53%,
+    rgb(83, 45, 173) 53%,
+    rgb(83, 45, 173) 59%,
+    rgb(154, 33, 181) 59%,
+    rgb(154, 33, 181) 62%,
+    rgb(130, 37, 178) 62%,
+    rgb(130, 37, 178) 66%,
+    rgb(177, 28, 184) 66%,
+    rgb(177, 28, 184) 77%,
+    rgb(248, 16, 192) 77%,
+    rgb(248, 16, 192) 100%
+  );
+}
+
+.gb2 {
+  background-image: linear-gradient(
+    45deg,
+    rgb(11, 45, 126) 0%,
+    rgb(11, 45, 126) 44%,
+    rgb(21, 87, 153) 44%,
+    rgb(21, 87, 153) 45%,
+    rgb(30, 129, 181) 45%,
+    rgb(30, 129, 181) 61%,
+    rgb(40, 170, 208) 61%,
+    rgb(40, 170, 208) 67%,
+    rgb(49, 212, 235) 67%,
+    rgb(49, 212, 235) 100%
+  );
+}
