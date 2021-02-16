@@ -45,7 +45,7 @@ h1 {
 
 .micro {
   margin-top: 20px;
-  width: 25%;
+  width: 10%;
   cursor: pointer;
   border-radius: 50px;
   -webkit-border-radius: 50px;
@@ -62,9 +62,10 @@ h1 {
 }
 .divMike {
   display: flex;
-  height: 50px;
+  height: 80px;
+  width: 500px;
   flex-direction: row;
-  justify-content: space-between;
+  justify-content: space-evenly;
   align-items: center;
   
 }
@@ -112,7 +113,7 @@ h1 {
 
 .gb {
   padding: 8px 20px;
-  margin-right: 25px;
+  /* margin-right: 25px; */
   cursor: pointer;
   font-size: 18px;
   margin-top: 15px;
@@ -120,6 +121,7 @@ h1 {
   border-radius: 50px;
   border: 2px solid white;
   color: white;
+  width: 150px;
 }
 .gb:hover {
   color: #ffffff;
