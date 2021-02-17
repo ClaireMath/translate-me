@@ -71,4 +71,7 @@
 
 
 
-
+function transcribe(words) {
+    document.getElementById("speech").value = words;
+    document.getElementById("micro").value = "";
+    document.getElementById("speech").focus()};

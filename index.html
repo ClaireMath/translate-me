@@ -12,15 +12,10 @@
   <!--bibliothèque TensorFlow -->
   <!-- <script src="https://cdn.jsdelivr.net/npm/@tensorflow-models/speech-commands"></script> -->
   <!--modele de commandes vocales pré-entrainé -->
-  
+    <title>TranslateMe</title>
 </head>
 
 <body>
-
-  <title>TranslateMe</title>
-  </head>
-
-  <body>
 
     <header>
       <img class="logo" src="./img/logo.png" alt="logo translateMe">
@@ -58,14 +53,21 @@
 
     </div>
 
-    <dv class="ctn-img">
+    <div class="ctn-img">
       <img src="./img/man.png" alt="man" class="img2">
       </div>
 
       </div>
+
+      <textarea cols="50" id="speech" ></textarea>
+      <input width=15px height=20px background-color=transparent
+        id="mic" onwebkitspeechchange="transcribe(this.value)" x-webkit-speech>
+
       <!-- <div class ="translate"></div> -->
       <!-- <script src="index.js"></script> -->
 
+
+      <script src="./js-machinelearning/vocal.js"></script>
       <script src="./micro/micro.js"></script>
   </body>
 
