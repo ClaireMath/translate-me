@@ -2,7 +2,7 @@ from gtts import gTTS
 import os
 
 
-myText = 'hello'
+myText = 'Bonjour, comment allez vous ?'
 
 language = 'fr'
 
