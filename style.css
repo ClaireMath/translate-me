@@ -54,12 +54,9 @@ h1 {
   -o-border-radius: 50px;
 }
 .micro:hover {
-  color: #ffffff;
-  background-color: #680d3b;
-  text-shadow: #fff 0px 0px 5px, #fff 0px 0px 10px, #fff 0px 0px 15px,
-    #ff2d95 0px 0px 20px, #ff2d95 0px 0px 30px, #ff2d95 0px 0px 40px,
-    #ff2d95 0px 0px 50px, #ff2d95 0px 0px 75px;
+  filter: drop-shadow(0 0 0.75rem crimson);
 }
+
 .divMike {
   display: flex;
   height: 80px;
@@ -67,7 +64,6 @@ h1 {
   flex-direction: row;
   justify-content: space-evenly;
   align-items: center;
-  
 }
 
 .ctnTextArea {
