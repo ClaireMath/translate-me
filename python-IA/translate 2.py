@@ -2,13 +2,12 @@ from googletrans import Translator
 from gtts import gTTS
 import os
 
-sentence = str(input('Dis une phrase à traduire en anglais'))
+sentence = str(input('Dis ...'))
 
 translator = Translator()
 
-translated_sentence = translator.translate(sentence, dest='en', src='fr')
+translated_sentence = translator.translate(sentence ,src='fr', dest='en')
 
-print('voici sa traduction :')
 print(translated_sentence.text)
 
 
