@@ -75,3 +75,19 @@ function transcribe(words) {
     document.getElementById("speech").value = words;
     document.getElementById("micro").value = "";
     document.getElementById("speech").focus()};
+
+
+    'use strict';
+
+document.getElementById('btn').addEventListener('click', getMyText);
+
+function getMyText () {
+    fetch('data.txt')
+    .then(function (response) {
+        // console.log(response.text())
+        return response.text()
+    }).then(function (data) {
+        console.log(data)
+        document.getElementById('results')
+        .innerHTML = data
+})}
