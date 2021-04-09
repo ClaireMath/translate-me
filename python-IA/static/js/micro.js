@@ -4,7 +4,7 @@ var microStop = document.getElementById("microStop");
 var playButton = document.getElementById("playButton");
 var downloadButton = document.getElementById("downloadButton");
 
-var apiUrl = 'http://localhost:3000'
+var apiUrl = ''
 
 var leftchannel = [];
 var rightchannel = [];
@@ -126,22 +126,28 @@ playButton.addEventListener("click", function () {
 
   var url = window.URL.createObjectURL(blob);
   var audio = new Audio(url);
-  audio.play();
-
+  // audio.play();
 
   // New code
   let soundFile = new File([blob], "sound")
   let formData = new FormData();
   //Adding files to the formdata
   formData.append("sound", soundFile);
+  formData.append("upload_file", true)
   
   $.ajax({
     type: 'POST',
     url: apiUrl + '/translate',
     data: formData,
-    
+    processData: false,
+    contentType: false,    
+  }).then(function (data) {
+    // TODO: Utiliser data.originalText et data.translatedText et l'afficher à l'utilisateur
+    // Télécharger le son depuis l'url data.soundUrl avec $.ajax
+    // Le faire jouer par le navigateur
+
+  });
 });
- });
 /////////////////////////////
 
 downloadButton.addEventListener("click", function () {

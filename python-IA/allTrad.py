@@ -26,7 +26,7 @@ if audio != None :
         print('Sorry, try again !')
 
 translator = Translator()
-translated_sentence = translator.translate(format(voice), dest='en', src='fr')
+translated_sentence = translator.translate(voice, dest='en', src='fr')
 print('voici sa traduction :')
 print(translated_sentence.text)
 
