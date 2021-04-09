@@ -5,12 +5,12 @@ import os
 
 r = sr.Recognizer()
 
-for device_index in sr.Microphone.list_microphone_names():
-    # m = Microphone(device_index=device_index)
-    print (device_index)
-    break
-else:
-    print("No working microphones found!")
+# for device_index in sr.Microphone.list_microphone_names():
+#     # m = Microphone(device_index=device_index)
+#     print (device_index)
+#     break
+# else:
+#     print("No working microphones found!")
 
 with sr.Microphone() as source:
     print("Parlez  : ")
@@ -38,4 +38,10 @@ output = gTTS(text=myText, lang=language, slow=False)
 output.save('output.mp3')
 
 
-os.system('start output.mp3')
+# pour mac : 
+# os.system('afplay output.mp3')
+# pour windows :
+#os.system('start output.mp3')
+
+os.system('afplay output.mp3')
+
