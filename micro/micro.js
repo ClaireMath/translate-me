@@ -1,8 +1,6 @@
-// var startRecordingButton = document.getElementById("startRecordingButton");
+// Getting all my buttons and placing them in variables :
 var micro = document.getElementById("micro");
 var microStop = document.getElementById("microStop");
-
-// var stopRecordingButton = document.getElementById("stopRecordingButton");
 var playButton = document.getElementById("playButton");
 var downloadButton = document.getElementById("downloadButton");
 
@@ -16,7 +14,7 @@ var sampleRate = 44100;
 var context = null;
 var blob = null;
 
-
+// Setting event listeners on my buttons :
 micro.addEventListener("click", function () {
   // Initialize recorder
 //   navigator.getUserMedia =
@@ -29,7 +27,7 @@ micro.addEventListener("click", function () {
       audio: true,
     },
     function (e) {
-      console.log("user consent");
+      console.log("consentement utilisateur");
 
       // creates the audio context
       window.AudioContext = window.AudioContext || window.webkitAudioContext;
@@ -127,7 +125,22 @@ playButton.addEventListener("click", function () {
   var url = window.URL.createObjectURL(blob);
   var audio = new Audio(url);
   audio.play();
+
+
+  // New code
+  let soundFile = new File([blob], "sound")
+  let formData = new FormData();
+  //Adding files to the formdata
+  formData.append("sound", soundFile);
+  
+  $.ajax({
+    type: 'POST',
+    url: '../index.html',
+    data: formData,
+    
 });
+ });
+/////////////////////////////
 
 downloadButton.addEventListener("click", function () {
   if (blob == null) {

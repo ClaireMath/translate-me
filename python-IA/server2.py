@@ -1,85 +1,39 @@
-from flask import Flask
-
+from flask import Flask, request
+import logging
+import speech_recognition as sr
+from googletrans import Translator
+from gtts import gTTS
+import os
+ 
+r = sr.Recognizer()
 app = Flask(__name__)
 
-@app.route("/")
+@app.route("/", methods=['GET', 'POST'])
 def main():
-    return "coucou"
+    logging.warning("data")
+    data = request.form['sound']
+    if data != None :
+        try:
+            voice = r.recognize_google(data, language="fr-FR")
 
-@app.route("/index")
-def index():
+            print("Vous avez dit : {}" .format(voice))
 
-    html = """<!DOCTYPE html>
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
-    <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Bitter:wght@100&family=Playfair+Display&display=swap"
-    rel="stylesheet">
-    <!-- <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs"></script> -->
-    <!--bibliothèque TensorFlow -->
-    <!-- <script src="https://cdn.jsdelivr.net/npm/@tensorflow-models/speech-commands"></script> -->
-    <!--modele de commandes vocales pré-entrainé -->
-    <title>TranslateMe</title>
-</head>
+        except:
+            print('Sorry, try again !')
 
-<body>
+        translator = Translator()
+        translated_sentence = translator.translate(format(voice), dest='en', src='fr')
+        print('voici sa traduction :')
+        print(translated_sentence.text)
 
-    <header>
-      <img class="logo" src="./img/logo.png" alt="logo translateMe">
-    </header>
+        myText = translated_sentence.text
 
-    <div class="ctn">
+        language = 'en'
 
-    <h1>OBTENEZ UNE TRADUCTION VOCALE GRATUITE ET INSTANTANNÉE !</h1>
-    <div class="divMike">
-    <img src="./img/micro.png" alt="micro" id="micro" class="micro">
-    <img src="./img/crossedMike.png" alt="micro" id="microStop" class="micro">
-    </div>
-    <div class="divMike">
-    <button class="gb gb2" id="playButton">PLAY</button>
-    <button id="downloadButton" class="gb gb1">DOWNLOAD</button>
-    </div>
-    <div class="ctn-translate">
+        output = gTTS(text=myText, lang=language, slow=False)
 
-    <p>FRANÇAIS</p>
+        output.save('output.mp3')
 
-    <p>ANGLAIS</p>
+        os.system('start output.mp3')
 
-    </div>
-
-    <div class="ctnTextArea">
-
-    <div class="areaOfTxt">
-    <p class="textSaid"></p>
-    </div>
-
-    <div class="areaOfTxt">
-    <p class="textTranslated"></p>
-    </div>
-    </div>
-
-    </div>
-
-    <div class="ctn-img">
-    <img src="./img/man.png" alt="man" class="img2">
-    </div>
-
-    </div>
-
-    <textarea cols="50" id="speech" ></textarea>
-    <input width=15px height=20px background-color=transparent
-    id="mic" onwebkitspeechchange="transcribe(this.value)" x-webkit-speech>
-
-    <!-- <div class ="translate"></div> -->
-    <!-- <script src="index.js"></script> -->
-
-
-    <script src="./js-machinelearning/vocal.js"></script>
-    <script src="./micro/micro.js"></script>
-</body>
-</html>
-"""
-
-    return html
+     #  return "coucou"
