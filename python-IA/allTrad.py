@@ -16,6 +16,7 @@ with sr.Microphone() as source:
     print("Parlez  : ")
     audio = r.listen(source)
 
+if audio != None :
     try:
         voice = r.recognize_google(audio, language="fr-FR")
 
