@@ -8,10 +8,15 @@ import os
 r = sr.Recognizer()
 app = Flask(__name__)
 
-@app.route("/", methods=['GET', 'POST'])
+@app.route("/", methods=['GET'])
+def hello():
+    return "Hello World!"
+
+@app.route("/translate", methods=['GET', 'POST'])
 def main():
     logging.warning("data")
     data = request.form['sound']
+   # data = request.form.get('sound')
     if data != None :
         try:
             voice = r.recognize_google(data, language="fr-FR")
@@ -36,4 +41,11 @@ def main():
 
         os.system('start output.mp3')
 
+        return output
+
      #  return "coucou"
+    else :
+        return '"Veuillez envoyer un fichier son"'
+
+if __name__ == "__main__":
+    app.run()

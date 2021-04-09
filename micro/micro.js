@@ -4,6 +4,8 @@ var microStop = document.getElementById("microStop");
 var playButton = document.getElementById("playButton");
 var downloadButton = document.getElementById("downloadButton");
 
+var apiUrl = 'http://localhost:3000'
+
 var leftchannel = [];
 var rightchannel = [];
 var recorder = null;
@@ -135,7 +137,7 @@ playButton.addEventListener("click", function () {
   
   $.ajax({
     type: 'POST',
-    url: '../index.html',
+    url: apiUrl + '/translate',
     data: formData,
     
 });
