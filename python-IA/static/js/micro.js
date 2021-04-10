@@ -1,7 +1,7 @@
 // Getting all my buttons and placing them in variables :
 var micro = document.getElementById("micro");
 var microStop = document.getElementById("microStop");
-var playButton = document.getElementById("playButton");
+var translateButton = document.getElementById("translateButton");
 var downloadButton = document.getElementById("downloadButton");
 
 var apiUrl = ''
@@ -29,7 +29,7 @@ micro.addEventListener("click", function () {
       audio: true,
     },
     function (e) {
-      console.log("consentement utilisateur");
+      // console.log("consentement utilisateur");
 
       // creates the audio context
       window.AudioContext = window.AudioContext || window.webkitAudioContext;
@@ -119,8 +119,9 @@ microStop.addEventListener("click", function () {
   blob = new Blob([view], { type: "audio/wav" });
 });
 
-playButton.addEventListener("click", function () {
+translateButton.addEventListener("click", function () {
   if (blob == null) {
+    window.alert("Veuillez enregistrer votre voix d'abord.");
     return;
   }
 
@@ -142,29 +143,37 @@ playButton.addEventListener("click", function () {
     processData: false,
     contentType: false,    
   }).then(function (data) {
-    // TODO: Utiliser data.originalText et data.translatedText et l'afficher à l'utilisateur
+     // Using data.originalText & data.translatedText & display the texts to the user
+    let frenchP = document.getElementById('textSaid');
+    frenchP.innerText = data.originalText+".";
+    let englishP = document.getElementById('textTranslated');
+    englishP.innerText = data.translatedText+".";
     // Télécharger le son depuis l'url data.soundUrl avec $.ajax
     // Le faire jouer par le navigateur
-
+    downloadButton.addEventListener("click", function () {
+      document.location.href=data.soundUrl;
+    });
+    //  document.location.href=data.soundUrl; 
   });
 });
 /////////////////////////////
 
 downloadButton.addEventListener("click", function () {
   if (blob == null) {
-    return;
+  window.alert("Veuillez enregistrer votre voix d'abord.");
+  return;
   }
-
-  var url = URL.createObjectURL(blob);
-
-  var a = document.createElement("a");
-  document.body.appendChild(a);
-  a.style = "display: none";
-  a.href = url;
-  a.download = "sample.wav";
-  a.click();
-  window.URL.revokeObjectURL(url);
 });
+//   var url = URL.createObjectURL(blob);
+
+//   var a = document.createElement("a");
+//   document.body.appendChild(a);
+//   a.style = "display: none";
+//   a.href = url;
+//   a.download = "sample.wav";
+//   a.click();
+//   window.URL.revokeObjectURL(url);
+// });
 
 function flattenArray(channelBuffer, recordingLength) {
   var result = new Float32Array(recordingLength);
