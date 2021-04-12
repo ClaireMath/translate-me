@@ -154,9 +154,13 @@ translateButton.addEventListener("click", function () {
     englishP.innerText = data.translatedText;
     // Télécharger le son depuis l'url data.soundUrl avec $.ajax
     // Le faire jouer par le navigateur
-    downloadButton.addEventListener("click", function () {
-      document.location.href=data.soundUrl;
-    });
+
+    var audiotranslate = new Audio(data.soundUrl);
+    audiotranslate.play();
+    document.location.href=data.soundUrl;
+    // downloadButton.addEventListener("click", function () {
+    //   document.location.href=data.soundUrl;
+    // });
     //  document.location.href=data.soundUrl; 
   });
 });
