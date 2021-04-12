@@ -3,7 +3,6 @@ var micro = document.getElementById("micro");
 var microStop = document.getElementById("microStop");
 var translateButton = document.getElementById("translateButton");
 var downloadButton = document.getElementById("downloadButton");
-
 var apiUrl = ''
 
 var leftchannel = [];
@@ -121,10 +120,11 @@ microStop.addEventListener("click", function () {
 
 translateButton.addEventListener("click", function () {
   if (blob == null) {
+    console.log("je suis dans le if blob == null");
     window.alert("Veuillez enregistrer votre voix d'abord.");
     return;
   }
-
+else {
   var url = window.URL.createObjectURL(blob);
   var audio = new Audio(url);
   // audio.play();
@@ -135,6 +135,8 @@ translateButton.addEventListener("click", function () {
   //Adding files to the formdata
   formData.append("sound", soundFile);
   formData.append("upload_file", true)
+
+  console.log("je crée le blob");
   
   $.ajax({
     type: 'POST',
@@ -143,18 +145,28 @@ translateButton.addEventListener("click", function () {
     processData: false,
     contentType: false,    
   }).then(function (data) {
+    console.log("je suis dans la promesse du ajax");
      // Using data.originalText & data.translatedText & display the texts to the user
     let frenchP = document.getElementById('textSaid');
-    frenchP.innerText = data.originalText+".";
+    frenchP.innerText = data.originalText;
     let englishP = document.getElementById('textTranslated');
-    englishP.innerText = data.translatedText+".";
+    englishP.innerText = data.translatedText;
     // Télécharger le son depuis l'url data.soundUrl avec $.ajax
     // Le faire jouer par le navigateur
-    downloadButton.addEventListener("click", function () {
-      document.location.href=data.soundUrl;
-    });
+
+    var audiotranslate = new Audio(data.soundUrl);
+    audiotranslate.play();
+    //function refreshMyPage () {
+    //  document.location.href=apiUrl;
+    //}
+    //setTimeout(refreshMyPage(){document.location.href=apiUrl}, 10000);
+    // downloadButton.addEventListener("click", function () {
+    //   document.location.href=data.soundUrl;
+    // });
     //  document.location.href=data.soundUrl; 
   });
+  // blob === null;
+}
 });
 /////////////////////////////
 
