@@ -17,6 +17,8 @@ var blob = null;
 
 // Setting event listeners on my buttons :
 micro.addEventListener("click", function () {
+  micro.style.cssText = 'display: none;';
+  microStop.style.cssText = 'display: flex; border: solid white; padding: 5px;';
   // Initialize recorder
 //   navigator.getUserMedia =
     navigator.getUserMedia ||
@@ -73,6 +75,9 @@ micro.addEventListener("click", function () {
 });
 
 microStop.addEventListener("click", function () {
+  microStop.style.cssText = 'display: none;';
+  micro.style.cssText = 'display: flex; border: solid white; padding: 5px;';
+
   // stop recording
   recorder.disconnect(context.destination);
   mediaStream.disconnect(recorder);

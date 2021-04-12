@@ -66,6 +66,10 @@ h1 {
   align-items: center;
 }
 
+#microStop {
+  display: none;
+}
+
 .ctnTextArea {
   width: 70%;
   height: 150px;
