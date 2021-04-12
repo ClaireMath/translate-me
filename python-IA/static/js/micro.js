@@ -3,7 +3,6 @@ var micro = document.getElementById("micro");
 var microStop = document.getElementById("microStop");
 var translateButton = document.getElementById("translateButton");
 var downloadButton = document.getElementById("downloadButton");
-console.log(translateButton);
 var apiUrl = ''
 
 var leftchannel = [];
@@ -125,7 +124,7 @@ translateButton.addEventListener("click", function () {
     window.alert("Veuillez enregistrer votre voix d'abord.");
     return;
   }
-
+else {
   var url = window.URL.createObjectURL(blob);
   var audio = new Audio(url);
   // audio.play();
@@ -157,12 +156,17 @@ translateButton.addEventListener("click", function () {
 
     var audiotranslate = new Audio(data.soundUrl);
     audiotranslate.play();
-    document.location.href=data.soundUrl;
+    //function refreshMyPage () {
+    //  document.location.href=apiUrl;
+    //}
+    //setTimeout(refreshMyPage(){document.location.href=apiUrl}, 10000);
     // downloadButton.addEventListener("click", function () {
     //   document.location.href=data.soundUrl;
     // });
     //  document.location.href=data.soundUrl; 
   });
+  // blob === null;
+}
 });
 /////////////////////////////
 

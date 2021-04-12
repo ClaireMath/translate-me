@@ -28,7 +28,7 @@ def main():
 
 @app.route("/translate", methods=['POST'])
 def translate():
-    #logging.warning("data")
+    logging.warning("data")
     #data = request.form['sound']
     soundFile = request.files['sound']
     # data = request.form.get('sound')
@@ -53,16 +53,17 @@ def translate():
         language = 'en'
 
         output = gTTS(text=myText, lang=language, slow=False)
-        uniqStr = ''
+        """uniqStr = ''
         if uniqStr != None :
             uniqStr = None
-        else :
-            uniqStr = get_random_string() # TODO: créer une fonction qui génère une chaîne unique
-            output.save('./static/sounds/' + uniqStr + '.mp3')
+        else : 
+            """
+        uniqStr = get_random_string() # TODO: créer une fonction qui génère une chaîne unique
+        print(uniqStr)
+        output.save('./static/sounds/' + uniqStr + '.mp3')
 
-            # os.system('start ./static/sounds/' + uniqStr + '.mp3')
-
-            return jsonify({ 'originalText': original_text, 'translatedText': myText, 'soundUrl': '/static/sounds/' + uniqStr + '.mp3' })
+        # os.system('start ./static/sounds/' + uniqStr + '.mp3')
+        return jsonify({ 'originalText': original_text, 'translatedText': myText, 'soundUrl': '/static/sounds/' + uniqStr + '.mp3' })
             #  return "coucou"
     else :
         return jsonify('Veuillez enregistrer votre voix.')
