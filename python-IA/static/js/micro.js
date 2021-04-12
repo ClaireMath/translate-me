@@ -147,11 +147,6 @@ function sendToTranslate() {
     window.alert("Veuillez enregistrer votre voix d'abord.");
     return;
   } else {
-    var url = window.URL.createObjectURL(blob);
-    var audio = new Audio(url);
-    // audio.play();
-
-    // New code
     let soundFile = new File([blob], "sound");
     let formData = new FormData();
     //Adding files to the formdata
@@ -177,7 +172,7 @@ function sendToTranslate() {
       // Le faire jouer par le navigateur
 
       var audiotranslate = new Audio(data.soundUrl);
-      // audiotranslate.play();
+      audiotranslate.play();
       // downloadButton.addEventListener("click", downloadTranslatedSound);
       // function downloadTranslatedSound () {
       // document.location.href=data.soundUrl;
