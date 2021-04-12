@@ -3,14 +3,18 @@ from googletrans import Translator
 from gtts import gTTS
 import os
 
-r = sr.Recognizer()
 
-# for device_index in sr.Microphone.list_microphone_names():
-#     # m = Microphone(device_index=device_index)
-#     print (device_index)
-#     break
-# else:
-#     print("No working microphones found!")
+# import of speech recognition = Library for performing speech recognition, with support for several engines and APIs, online and offline.
+# import googletrans : free and unlimited python library that implemented Google Translate API.
+# import gTTS (Google Text-to-Speech) : a Python library and CLI tool to interface with Google Translate's text-to-speech API.
+# import os : OS module provides easy functions that allow us to interact and get Operating System information and even control processes up to a limit.
+
+
+# collect the sound data to convert it into text format, translates it 
+# into the expected language in text format as well and in sound format recorded in a sound file.
+
+
+r = sr.Recognizer()
 
 with sr.Microphone() as source:
     print("Parlez  : ")
@@ -18,6 +22,7 @@ with sr.Microphone() as source:
     # audio = r.listen(source)
 
 if audio != None :
+
     try:
 
         voice = r.recognize_google(audio)
@@ -30,7 +35,6 @@ if audio != None :
 
 translator = Translator()
 
-# translated_sentence = translator.translate(voice, dest='fr')
 translated_sentence = translator.translate(voice, dest='en', src="auto")
 print('voici sa traduction :')
 print(translated_sentence.text)
@@ -44,10 +48,7 @@ output = gTTS(text=myText, lang=language, slow=False)
 output.save('output.mp3')
 
 
-# pour mac : 
+# for mac : 
 # os.system('afplay output.mp3')
-# pour windows :
-#os.system('start output.mp3')
-
-os.system('afplay output.mp3')
-
+# for windows :
+# os.system('start output.mp3')

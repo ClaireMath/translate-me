@@ -2,96 +2,88 @@
 <html lang="fr">
 
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="/static/css/style.css">
-  <link rel="icon" type="image/png" href="/python-IA/static/img/micro.png">
-<!-- claire:python-IA/templates/index.html -->
-  <link rel="preconnect" href="https://fonts.gstatic.com">
-  <link href="https://fonts.googleapis.com/css2?family=Bitter:wght@100&family=Playfair+Display&display=swap"
-    rel="stylesheet">
-  <!-- <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs"></script> -->
-  <!--bibliothèque TensorFlow -->
-  <!-- <script src="https://cdn.jsdelivr.net/npm/@tensorflow-models/speech-commands"></script> -->
-  <!--modele de commandes vocales pré-entrainé -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/static/css/style.css">
+    <link rel="icon" type="image/png" href="/static/img/micro.png">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Bitter:wght@100&family=Playfair+Display&display=swap" rel="stylesheet">
+
+    <!-- <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs"></script> -->
+    <!--bibliothèque TensorFlow -->
+    <!-- <script src="https://cdn.jsdelivr.net/npm/@tensorflow-models/speech-commands"></script> -->
+    <!--modele de commandes vocales pré-entrainé -->
+
     <title>TranslateMe</title>
 </head>
 
 <body>
 
     <header>
-      <img class="logo" src="/static/img/logo.png" alt="logo translateMe">
- <!-- claire:python-IA/templates/index.html -->
+        <img class="logo" src="/static/img/logo.png" alt="logo translateMe">
     </header>
 
     <div class="ctn">
 
-      <h1>OBTENEZ UNE TRADUCTION VOCALE GRATUITE ET INSTANTANNÉE !</h1>
-      <!-- <div class="divMike">
-        <img src="/static/img/micro.png" alt="micro" id="micro" class="micro">
-        <img src="/static/img/crossedMike.png" alt="micro" id="microStop" class="micro">
-      </div> -->
-      <div class="divMike">
-        <img src="/static/img/micro.png" alt="micro" id="micro" class="micro">
-        <img src="/static/img/crossedMike.png" alt="micro" id="microStop" class="micro">
-        <button class="gb gb2" id="translateButton">TRADUIRE</button>
-        <!-- <button class="gb gb1" id="playButton">TRADUIRE</button> -->
-        <img src="/static/img/downloadCloud.png" alt="telechargement" id="downloadButton">
-        <!-- <button id="downloadButton" class="gb gb3">TELECHARGER LA TRADUCTION</button> -->
-      </div>
-      <div class="ctn-translate">
+        <h1>OBTENEZ UNE TRADUCTION VOCALE GRATUITE ET INSTANTANNÉE !</h1>
+        <div class="divMike">
+            <img src="/static/img/micro.png" alt="micro" id="micro" class="micro">
+            <img src="/static/img/crossedMike.png" alt="micro" id="microStop" class="micro">
+            <button class="gb gb2" id="translateButton">TRADUIRE</button>
+            <img src="/static/img/downloadCloud.png" alt="telechargement" id="downloadButton">
+        </div>
+        <div class="ctn-translate">
 
-        <select class="select 1">
-          <option disabled selected>Langue source</option>
-          <option value="Français">Français</option>
-          <option value="Anglais">Anglais</option>
-          <option value="Arabe">Arabe</option>
-          <option value="Chinois">Chinois</option>
-          <option value="Allemand">Allemand</option>
-          <option value="Italien">Italien</option>
-          <option value="Russe">Russe</option>
-          <option value="Espagnole">Espagnole</option>
-        </select>
-        
+            <select class="select 1">
+        <option disabled selected>Langue source</option>
+        <option value="Français">Français</option>
+        <option value="Anglais">Anglais</option>
+        <option value="Arabe">Arabe</option>
+        <option value="Chinois">Chinois</option>
+        <option value="Allemand">Allemand</option>
+        <option value="Italien">Italien</option>
+        <option value="Russe">Russe</option>
+        <option value="Espagnol">Espagnol</option>
+      </select>
 
-        <select class="select">
+            <form>
+                <select class="select">
           <option disabled selected>Langue cible</option>
           <option value="Français">Français</option>
           <option value="Anglais">Anglais</option>
-          <option value="Arabe">Arabe</option>
+          <option id="ar" value="Arabe">Arabe</option>
           <option value="Chinois">Chinois</option>
           <option value="Allemand">Allemand</option>
           <option value="Italien">Italien</option>
           <option value="Russe">Russe</option>
-          <option value="Espagnole">Espagnole</option>
+          <option value="Espagnol">Espagnol</option>
         </select>
+            </form>
 
-      </div>
-
-      <div class="ctnTextArea">
-
-        <div class="areaOfTxt">
-          <p id="textSaid"></p>
         </div>
 
-        <div class="areaOfTxt">
-          <p id="textTranslated"></p>
+        <div class="ctnTextArea">
+
+            <div class="areaOfTxt">
+                <p id="textSaid"></p>
+            </div>
+
+            <div class="areaOfTxt">
+                <p id="textTranslated"></p>
+            </div>
         </div>
-      </div>
-<!-- <div class="ctn-img">
-      <img src="/python-IA/static/img/man.png" alt="man" class="img2">
-      </div> -->
+
+        <img src="/static/img/man.png" alt="man" class="img2">
+
     </div>
 
-    
 
-      </div>
 
-      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-      <!-- <script src="https://code.jquery.com/jquery-3.6.0.slim.min.js" integrity="sha256-u7e5khyithlIdTpu22PHhENmPcRdFiHRjhAuHcs05RI=" crossorigin="anonymous"></script> -->
-      <!-- <script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script> -->
-      <script src="/static/js/micro.js"></script>
-      
-  </body>
+    </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="/static/js/micro.js"></script>
+
+</body>
 
 </html>

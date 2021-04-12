@@ -1,219 +1,168 @@
 * {
-  margin: 0px;
-  padding: 0px;
-  box-sizing: border-box;
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
 }
 
 body {
-  background-color: #ccdcfc;
-  padding: 5px;
-  height: 100vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+    background-color: #ccdcfc;
+    padding: 5px;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
 header {
-  width: 100%;
+    width: 100%;
 }
 
 h1 {
-  font-family: "Bitter", serif;
-  color: white;
-  font-size: 2.4rem;
-  text-align: center;
-  width: 100%;
+    font-family: "Bitter", serif;
+    color: white;
+    font-size: 2.4rem;
+    text-align: center;
+    width: 100%;
 }
 
 .ctn {
-  display: flex;
-  height: 100vh;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+    display: flex;
+    height: 100vh;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
 .img2 {
-  width: 10%;
-  height: 50%;
+    width: 20px;
+    height: 20px;
 }
 
 .logo {
-  width: 30%;
-  padding: 1%;
+    width: 30%;
+    padding: 1%;
 }
 
 #downloadButton {
-  margin-top: 20px;
-  width: 9%;
-  cursor: pointer;
+    margin-top: 20px;
+    width: 9%;
+    cursor: pointer;
 }
 
 .micro {
-  margin-top: 20px;
-  width: 7%;
-  cursor: pointer;
-  border-radius: 50px;
-  -webkit-border-radius: 50px;
-  -moz-border-radius: 50px;
-  -ms-border-radius: 50px;
-  -o-border-radius: 50px;
+    margin-top: 20px;
+    width: 7%;
+    cursor: pointer;
+    border-radius: 50px;
+    -webkit-border-radius: 50px;
+    -moz-border-radius: 50px;
+    -ms-border-radius: 50px;
+    -o-border-radius: 50px;
 }
-.micro:hover, #downloadButton:hover {
-  filter: drop-shadow(0 0 0.75rem crimson);
+
+.micro:hover,
+#downloadButton:hover {
+    filter: drop-shadow(0 0 0.75rem crimson);
 }
 
 .divMike {
-  display: flex;
-  height: 80px;
-  width: 700px;
-  flex-direction: row;
-  justify-content: space-evenly;
-  align-items: center;
+    display: flex;
+    height: 80px;
+    width: 700px;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
 }
 
 #microStop {
-  display: none;
+    display: none;
 }
 
 .select {
- padding: 3px;
- background-color: #ccdcfc ;
- color: white;
- border: 2px solid white;
- border-radius: 10px;
- cursor: pointer;
- font-family: "Bitter", serif;
- font-weight: bold;
- 
+    padding: 3px;
+    background-color: #ccdcfc;
+    color: white;
+    border: 2px solid white;
+    border-radius: 10px;
+    cursor: pointer;
+    font-family: "Bitter", serif;
+    font-weight: bold;
 }
 
 .select:focus,
 .select:hover {
-  outline: none;
-  border : 2px solid white;
+    outline: none;
+    border: 2px solid white;
 }
 
 .select option {
-  background: #ccdcfc;
-  color: white;
+    background: #ccdcfc;
+    color: white;
 }
 
 .ctnTextArea {
-  width: 70%;
-  height: 150px;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-around;
-  align-items: center;
-  z-index: 2;
+    width: 70%;
+    height: 150px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    z-index: 2;
 }
 
 .areaOfTxt {
-  font-family: "Bitter", serif;
-  padding: 15px;
-  width: 40%;
-  height: 144%;
-  border: 2px solid white;
-  border-radius: 10px;
-}
-
-.ctn-img {
-  width: 80%;
-  height: 40%;
-display: flex;
-justify-content: flex-end;
-  z-index: 10;
-  position: absolute;
+    font-family: "Bitter", serif;
+    padding: 15px;
+    width: 40%;
+    height: 144%;
+    border: 2px solid white;
+    border-radius: 10px;
 }
 
 .ctn-translate {
-  width: 34%;
-  height: 102px;
-  display: flex;
-  font-size: 12em;
-  color: white;
-  font-size: 100%;
-  justify-content: space-around;
-  align-items: center;
+    width: 34%;
+    height: 102px;
+    display: flex;
+    font-size: 12em;
+    color: white;
+    font-size: 100%;
+    justify-content: space-around;
+    align-items: center;
 }
+
 .ctn-translate p {
-  font-size: 1rem;
+    font-size: 1rem;
 }
 
 .gb {
-  /* height: 55px; */
-  padding: 8px 20px;
-  /* margin-right: 25px; */
-  cursor: pointer;
-  font-size: 18px;
-  margin-top: 15px;
-  padding: 6px 20px;
-  border-radius: 50px;
-  border: 2px solid white;
-  color: white;
-  width: 170px;
+    /* height: 55px; */
+    padding: 8px 20px;
+    /* margin-right: 25px; */
+    cursor: pointer;
+    font-size: 18px;
+    margin-top: 15px;
+    padding: 6px 20px;
+    border-radius: 50px;
+    border: 2px solid white;
+    color: white;
+    width: 170px;
 }
+
 .gb:hover {
-  color: #ffffff;
-  background-color: #680d3b;
-  text-shadow: #fff 0px 0px 5px, #fff 0px 0px 10px, #fff 0px 0px 15px,
-    #ff2d95 0px 0px 20px, #ff2d95 0px 0px 30px, #ff2d95 0px 0px 40px,
-    #ff2d95 0px 0px 50px, #ff2d95 0px 0px 75px;
+    color: #ffffff;
+    background-color: #680d3b;
+    text-shadow: #fff 0px 0px 5px, #fff 0px 0px 10px, #fff 0px 0px 15px, #ff2d95 0px 0px 20px, #ff2d95 0px 0px 30px, #ff2d95 0px 0px 40px, #ff2d95 0px 0px 50px, #ff2d95 0px 0px 75px;
 }
+
 .gb1 {
-  background-image: linear-gradient(
-    45deg,
-    rgb(107, 41, 176) 0%,
-    rgb(107, 41, 176) 26%,
-    rgb(201, 24, 187) 26%,
-    rgb(201, 24, 187) 45%,
-    rgb(224, 20, 189) 45%,
-    rgb(224, 20, 189) 53%,
-    rgb(83, 45, 173) 53%,
-    rgb(83, 45, 173) 59%,
-    rgb(154, 33, 181) 59%,
-    rgb(154, 33, 181) 62%,
-    rgb(130, 37, 178) 62%,
-    rgb(130, 37, 178) 66%,
-    rgb(177, 28, 184) 66%,
-    rgb(177, 28, 184) 77%,
-    rgb(248, 16, 192) 77%,
-    rgb(248, 16, 192) 100%
-  );
+    background-image: linear-gradient( 45deg, rgb(107, 41, 176) 0%, rgb(107, 41, 176) 26%, rgb(201, 24, 187) 26%, rgb(201, 24, 187) 45%, rgb(224, 20, 189) 45%, rgb(224, 20, 189) 53%, rgb(83, 45, 173) 53%, rgb(83, 45, 173) 59%, rgb(154, 33, 181) 59%, rgb(154, 33, 181) 62%, rgb(130, 37, 178) 62%, rgb(130, 37, 178) 66%, rgb(177, 28, 184) 66%, rgb(177, 28, 184) 77%, rgb(248, 16, 192) 77%, rgb(248, 16, 192) 100%);
 }
 
 .gb2 {
-  background-image: linear-gradient(
-    45deg,
-    rgb(11, 45, 126) 0%,
-    rgb(11, 45, 126) 44%,
-    rgb(21, 87, 153) 44%,
-    rgb(21, 87, 153) 45%,
-    rgb(30, 129, 181) 45%,
-    rgb(30, 129, 181) 61%,
-    rgb(40, 170, 208) 61%,
-    rgb(40, 170, 208) 67%,
-    rgb(49, 212, 235) 67%,
-    rgb(49, 212, 235) 100%
-  );
+    background-image: linear-gradient( 45deg, rgb(11, 45, 126) 0%, rgb(11, 45, 126) 44%, rgb(21, 87, 153) 44%, rgb(21, 87, 153) 45%, rgb(30, 129, 181) 45%, rgb(30, 129, 181) 61%, rgb(40, 170, 208) 61%, rgb(40, 170, 208) 67%, rgb(49, 212, 235) 67%, rgb(49, 212, 235) 100%);
 }
+
 .gb3 {
-  background-image: linear-gradient(45deg, 
-  rgb(239, 7, 129) 0%,
-   rgb(239, 7, 129) 6%,
-   rgb(208, 10, 112) 6%,
-    rgb(208, 10, 112) 25%,
-    rgb(177, 13, 96) 25%, 
-    rgb(177, 13, 96) 40%,
-    rgb(147, 16, 79) 40%,
-     rgb(147, 16, 79) 45%,
-     rgb(116, 19, 62) 45%, 
-     rgb(116, 19, 62) 53%,
-     rgb(85, 22, 46) 53%, 
-     rgb(85, 22, 46) 66%,
-     rgb(54, 25, 29) 66%, 
-     rgb(54, 25, 29) 100%
-     );
+    background-image: linear-gradient(45deg, rgb(239, 7, 129) 0%, rgb(239, 7, 129) 6%, rgb(208, 10, 112) 6%, rgb(208, 10, 112) 25%, rgb(177, 13, 96) 25%, rgb(177, 13, 96) 40%, rgb(147, 16, 79) 40%, rgb(147, 16, 79) 45%, rgb(116, 19, 62) 45%, rgb(116, 19, 62) 53%, rgb(85, 22, 46) 53%, rgb(85, 22, 46) 66%, rgb(54, 25, 29) 66%, rgb(54, 25, 29) 100%);
 }
