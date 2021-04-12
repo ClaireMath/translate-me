@@ -3,7 +3,9 @@ Flask==1.1.2
 itsdangerous==1.1.0
 Jinja2==2.11.3
 MarkupSafe==1.1.1
+PyAudio==0.2.11
 SpeechRecognition==3.8.1
 Werkzeug==1.0.1
-gTTS==2.2.2
+Flask-Cors==3.0.10
 googletrans==4.0.0rc1
+gTTS==2.2.2

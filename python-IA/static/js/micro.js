@@ -1,9 +1,8 @@
 // Getting all my buttons and placing them in variables :
 var micro = document.getElementById("micro");
 var microStop = document.getElementById("microStop");
-var playButton = document.getElementById("playButton");
+var translateButton = document.getElementById("translateButton");
 var downloadButton = document.getElementById("downloadButton");
-
 var apiUrl = ''
 
 var leftchannel = [];
@@ -29,7 +28,7 @@ micro.addEventListener("click", function () {
       audio: true,
     },
     function (e) {
-      console.log("consentement utilisateur");
+      // console.log("consentement utilisateur");
 
       // creates the audio context
       window.AudioContext = window.AudioContext || window.webkitAudioContext;
@@ -119,11 +118,13 @@ microStop.addEventListener("click", function () {
   blob = new Blob([view], { type: "audio/wav" });
 });
 
-playButton.addEventListener("click", function () {
+translateButton.addEventListener("click", function () {
   if (blob == null) {
-    return new blob;
+    console.log("je suis dans le if blob == null");
+    window.alert("Veuillez enregistrer votre voix d'abord.");
+    return;
   }
-
+else {
   var url = window.URL.createObjectURL(blob);
   var audio = new Audio(url);
   // audio.play();
@@ -134,6 +135,8 @@ playButton.addEventListener("click", function () {
   //Adding files to the formdata
   formData.append("sound", soundFile);
   formData.append("upload_file", true)
+
+  console.log("je crée le blob");
   
   $.ajax({
     type: 'POST',
@@ -142,29 +145,47 @@ playButton.addEventListener("click", function () {
     processData: false,
     contentType: false,    
   }).then(function (data) {
-    // TODO: Utiliser data.originalText et data.translatedText et l'afficher à l'utilisateur
+    console.log("je suis dans la promesse du ajax");
+     // Using data.originalText & data.translatedText & display the texts to the user
+    let frenchP = document.getElementById('textSaid');
+    frenchP.innerText = data.originalText;
+    let englishP = document.getElementById('textTranslated');
+    englishP.innerText = data.translatedText;
     // Télécharger le son depuis l'url data.soundUrl avec $.ajax
     // Le faire jouer par le navigateur
 
+    var audiotranslate = new Audio(data.soundUrl);
+    audiotranslate.play();
+    //function refreshMyPage () {
+    //  document.location.href=apiUrl;
+    //}
+    //setTimeout(refreshMyPage(){document.location.href=apiUrl}, 10000);
+    // downloadButton.addEventListener("click", function () {
+    //   document.location.href=data.soundUrl;
+    // });
+    //  document.location.href=data.soundUrl; 
   });
+  // blob === null;
+}
 });
 /////////////////////////////
 
 downloadButton.addEventListener("click", function () {
   if (blob == null) {
-    return;
+  window.alert("Veuillez enregistrer votre voix d'abord.");
+  return;
   }
-
-  var url = URL.createObjectURL(blob);
-
-  var a = document.createElement("a");
-  document.body.appendChild(a);
-  a.style = "display: none";
-  a.href = url;
-  a.download = "sample.wav";
-  a.click();
-  window.URL.revokeObjectURL(url);
 });
+//   var url = URL.createObjectURL(blob);
+
+//   var a = document.createElement("a");
+//   document.body.appendChild(a);
+//   a.style = "display: none";
+//   a.href = url;
+//   a.download = "sample.wav";
+//   a.click();
+//   window.URL.revokeObjectURL(url);
+// });
 
 function flattenArray(channelBuffer, recordingLength) {
   var result = new Float32Array(recordingLength);
