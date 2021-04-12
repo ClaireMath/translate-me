@@ -53,11 +53,11 @@ def translate():
         language = 'en'
 
         output = gTTS(text=myText, lang=language, slow=False)
-        """uniqStr = ''
-        if uniqStr != None :
-            uniqStr = None
-        else : 
-            """
+        # """uniqStr = ''
+        # if uniqStr != None :
+        #     uniqStr = None
+        # else : 
+        #     """
         uniqStr = get_random_string() # TODO: créer une fonction qui génère une chaîne unique
         print(uniqStr)
         output.save('./static/sounds/' + uniqStr + '.mp3')

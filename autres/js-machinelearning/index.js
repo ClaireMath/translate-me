@@ -1,3 +1,21 @@
+////////////////////////////////////////////////////////////
+
+
+// TensorFlow.js est une bibliothèque JavaScript qui permet d'entraîner et de déployer des modèles de machine learning 
+// dans le navigateur et sur Node.js.
+
+// Nous avons souhaité garder cette partie afin de montrer les étapes de déroulement du projet.
+// Nous avions tout d'abord décidé de commencer par entrainer un petit modèle à faire des prédictions
+// de mots à partir de données, lui permettant de reconnaitre/associer les différents mots à leurs intonnations/voix.
+
+// Cette partie fut très interessante et formatrice cependant, pas la plus rapide et optimale.
+
+// C'est pour cela que nous avons décidé d'opter pour une stratégie différente.
+
+
+
+///////////////////////////////////////////////////////////
+
 let recognizer;
 
 function predictWord() {

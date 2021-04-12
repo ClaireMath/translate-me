@@ -140,10 +140,10 @@ else {
   
   $.ajax({
     type: 'POST',
-    url: '/',
+    url: apiUrl + '/translate',
     data: formData,
     processData: false,
-    contentType: false,    
+    contentType: false,
   }).then(function (data) {
     console.log("je suis dans la promesse du ajax");
      // Using data.originalText & data.translatedText & display the texts to the user
@@ -151,7 +151,7 @@ else {
     frenchP.innerText = data.originalText;
     let englishP = document.getElementById('textTranslated');
     englishP.innerText = data.translatedText;
-    // Télécharger le son depuis l'url data.soundUrl avec $.ajax
+ // Télécharger le son depuis l'url data.soundUrl avec $.ajax
     // Le faire jouer par le navigateur
 
     var audiotranslate = new Audio(data.soundUrl);
@@ -159,7 +159,7 @@ else {
     //function refreshMyPage () {
     //  document.location.href=apiUrl;
     //}
-    //setTimeout(refreshMyPage(){document.location.href=apiUrl}, 10000);
+//setTimeout(refreshMyPage(){document.location.href=apiUrl}, 10000);
     // downloadButton.addEventListener("click", function () {
     //   document.location.href=data.soundUrl;
     // });
