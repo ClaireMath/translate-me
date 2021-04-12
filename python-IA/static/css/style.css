@@ -43,6 +43,12 @@ h1 {
   padding: 1%;
 }
 
+#downloadButton {
+  margin-top: 20px;
+  width: 9%;
+  cursor: pointer;
+}
+
 .micro {
   margin-top: 20px;
   width: 7%;
@@ -53,7 +59,7 @@ h1 {
   -ms-border-radius: 50px;
   -o-border-radius: 50px;
 }
-.micro:hover {
+.micro:hover, #downloadButton:hover {
   filter: drop-shadow(0 0 0.75rem crimson);
 }
 
@@ -64,6 +70,10 @@ h1 {
   flex-direction: row;
   justify-content: space-evenly;
   align-items: center;
+}
+
+#microStop {
+  display: none;
 }
 
 .ctnTextArea {
@@ -110,7 +120,7 @@ h1 {
 }
 
 .gb {
-  height: 55px;
+  /* height: 55px; */
   padding: 8px 20px;
   /* margin-right: 25px; */
   cursor: pointer;
