@@ -147,10 +147,7 @@ function listen() {
         const predLabel = probs.argMax(1); // appel ici + Pour convertir la distribution de probabilité en un seul entier représentant la classe la plus probable, nous appelons probs.argMax(1)qui renvoie l'index de classe avec la probabilité la plus élevée. Nous passons un « 1 » comme paramètre d'axe parce que nous voulons calculer le argMaxcours de la dernière dimension, numClasses.
         await moveSlider(predLabel); // appel ici + moveSlider() diminue la valeur du curseur si l'étiquette est 0 ("left"), l'augmente si l'étiquette est 1 ("right") et ignore si l'étiquette est 2 ("noise").
 
-
         tf.dispose([input, probs, predLabel]); // Éliminer les tenseurs =  Pour nettoyer la mémoire du GPU, il est important pour nous d'appeler manuellement tf.dispose () sur les Tensors de sortie. L'alternative au manuel tf.dispose()consiste à encapsuler les appels de fonction dans a tf.tidy(), mais cela ne peut pas être utilisé avec les fonctions asynchrones.
-
-
 
     }, {
         overlapFactor: 0.999,

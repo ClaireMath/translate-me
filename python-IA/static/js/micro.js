@@ -17,14 +17,14 @@ var blob = null;
 
 // vendor prefixes pour obtenir le consentement de l'urilisateur pour les anciens navigateurs
 navigator.getUserMedia =
-    navigator.getUserMedia ||
-    navigator.webkitGetUserMedia ||
-    navigator.mozGetUserMedia ||
-    navigator.msGetUserMedia;
+  navigator.getUserMedia ||
+  navigator.webkitGetUserMedia ||
+  navigator.mozGetUserMedia ||
+  navigator.msGetUserMedia;
 
 // Setting event listeners on my buttons :
-micro.addEventListener("click", startTheMike) 
-  function startTheMike() {
+micro.addEventListener("click", startTheMike);
+function startTheMike() {
   leftchannel = [];
   rightchannel = [];
   micro.style.cssText = "display: none;";
@@ -46,7 +46,7 @@ micro.addEventListener("click", startTheMike)
       .then(streamHandler)
       .catch(errorHandler);
   }
-};
+}
 
 function streamHandler(e) {
   // creates the audio context
@@ -90,7 +90,7 @@ function errorHandler(e) {
   console.error(e);
 }
 
-microStop.addEventListener("click", stopTheMike); 
+microStop.addEventListener("click", stopTheMike);
 function stopTheMike() {
   microStop.style.cssText = "display: none;";
   micro.style.cssText = "display: flex; border: solid white; padding: 5px;";
@@ -138,7 +138,7 @@ function stopTheMike() {
 
   // our final blob
   blob = new Blob([view], { type: "audio/wav" });
-};
+}
 
 translateButton.addEventListener("click", sendToTranslate);
 function sendToTranslate() {
@@ -177,28 +177,31 @@ function sendToTranslate() {
       // Le faire jouer par le navigateur
 
       var audiotranslate = new Audio(data.soundUrl);
-      audiotranslate.play();
-      //function refreshMyPage () {
-      //  document.location.href=apiUrl;
-      //}
-      //setTimeout(refreshMyPage(){document.location.href=apiUrl}, 10000);
-      // downloadButton.addEventListener("click", function () {
-      //   document.location.href=data.soundUrl;
-      // });
-      //  document.location.href=data.soundUrl;
-    });
-    // blob === null;
-  }
-}
-/////////////////////////////
-
-downloadButton.addEventListener("click", downloadTranslatedSound);
+      // audiotranslate.play();
+      // downloadButton.addEventListener("click", downloadTranslatedSound);
+      // function downloadTranslatedSound () {
+      // document.location.href=data.soundUrl;
+      // };
+      downloadButton.addEventListener("click", downloadTranslatedSound);
 function downloadTranslatedSound() {
   if (blob == null) {
     window.alert("Veuillez enregistrer votre voix d'abord.");
     return;
+  } else {
+    var url2 = data.soundUrl;
+    var a = document.createElement("a");
+    document.body.appendChild(a);
+    a.style = "display: none";
+    a.href = url2;
+    a.download = "sample.wav";
+    a.click();
+    // window.URL.revokeObjectURL(data.soundUrl);
   }
-};
+}
+    });
+  }
+}
+
 //   var url = URL.createObjectURL(blob);
 
 //   var a = document.createElement("a");
