@@ -57,7 +57,7 @@ def translate():
         uniqStr = get_random_string() # TODO: créer une fonction qui génère une chaîne unique
         output.save('./static/sounds/' + uniqStr + '.mp3')
 
-        os.system('start ./static/sounds/' + uniqStr + '.mp3')
+        # os.system('start ./static/sounds/' + uniqStr + '.mp3')
 
         return jsonify({ 'originalText': original_text, 'translatedText': myText, 'soundUrl': '/static/sounds/' + uniqStr + '.mp3' })
      #  return "coucou"
