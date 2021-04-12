@@ -4,11 +4,7 @@ var microStop = document.getElementById("microStop");
 var playButton = document.getElementById("playButton");
 var downloadButton = document.getElementById("downloadButton");
 
-<<<<<<< Updated upstream:python-IA/static/js/micro.js
 var apiUrl = ''
-=======
-// var apiUrl = 'http://localhost:5000'
->>>>>>> Stashed changes:micro/micro.js
 
 var leftchannel = [];
 var rightchannel = [];
@@ -125,7 +121,7 @@ microStop.addEventListener("click", function () {
 
 playButton.addEventListener("click", function () {
   if (blob == null) {
-    return;
+    return new blob;
   }
 
   var url = window.URL.createObjectURL(blob);
@@ -143,7 +139,6 @@ playButton.addEventListener("click", function () {
     type: 'POST',
     url: '/',
     data: formData,
-<<<<<<< Updated upstream:python-IA/static/js/micro.js
     processData: false,
     contentType: false,    
   }).then(function (data) {
@@ -153,16 +148,6 @@ playButton.addEventListener("click", function () {
 
   });
 });
-=======
-    datatype: 'mp3',
-    processData: false,
-    contentType: false,
-    
-}).done(r => {
-  console.log(r)
-})
- });
->>>>>>> Stashed changes:micro/micro.js
 /////////////////////////////
 
 downloadButton.addEventListener("click", function () {

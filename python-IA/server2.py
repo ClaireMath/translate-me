@@ -59,7 +59,10 @@ def translate():
 
         os.system('start ./static/sounds/' + uniqStr + '.mp3')
 
-        return jsonify({ 'originalText': original_text, 'translatedText': myText, 'soundUrl': '/static/sounds/' + uniqStr + '.mp3' })
+        value = { 'originalText': original_text, 'translatedText': myText, 'soundUrl': '/static/sounds/' + uniqStr + '.mp3' }
+
+        return jsonify(value)
+
      #  return "coucou"
     else :
         return jsonify('Veuillez enregistrer votre voix')

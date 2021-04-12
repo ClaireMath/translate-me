@@ -14,19 +14,24 @@ r = sr.Recognizer()
 
 with sr.Microphone() as source:
     print("Parlez  : ")
-    audio = r.listen(source)
+    audio = r.record(source, duration=4)
+    # audio = r.listen(source)
 
 if audio != None :
     try:
-        voice = r.recognize_google(audio, language="fr-FR")
 
+        voice = r.recognize_google(audio)
+        # voice = r.recognize_google(audio, language="fr-FR")
+        
         print("Vous avez dit : {}" .format(voice))
 
     except:
         print('Sorry, try again !')
 
 translator = Translator()
-translated_sentence = translator.translate(voice, dest='en', src='fr')
+
+# translated_sentence = translator.translate(voice, dest='fr')
+translated_sentence = translator.translate(voice, dest='en', src="auto")
 print('voici sa traduction :')
 print(translated_sentence.text)
 
