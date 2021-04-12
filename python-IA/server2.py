@@ -53,20 +53,16 @@ def translate():
         language = 'en'
 
         output = gTTS(text=myText, lang=language, slow=False)
-        # """uniqStr = ''
-        # if uniqStr != None :
-        #     uniqStr = None
-        # else : 
-        #     """
+
         uniqStr = get_random_string() # TODO: créer une fonction qui génère une chaîne unique
-        print(uniqStr)
         output.save('./static/sounds/' + uniqStr + '.mp3')
 
-        # os.system('start ./static/sounds/' + uniqStr + '.mp3')
+        os.system('start ./static/sounds/' + uniqStr + '.mp3')
+
         return jsonify({ 'originalText': original_text, 'translatedText': myText, 'soundUrl': '/static/sounds/' + uniqStr + '.mp3' })
-            #  return "coucou"
+     #  return "coucou"
     else :
-        return jsonify('Veuillez enregistrer votre voix.')
+        return jsonify('Veuillez enregistrer votre voix')
 
 if __name__ == "__main__":
     app.run()
