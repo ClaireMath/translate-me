@@ -175,10 +175,10 @@ function sendToTranslate() {
             }
             let frenchP = document.getElementById("textSaid");
             let originalTextWithMaj = capitalizeFirstLetter(data.originalText);
-            frenchP.innerText = originalTextWithMaj;
+            frenchP.innerText = originalTextWithMaj+".";
             let englishP = document.getElementById("textTranslated");
             let translatedTextWithMaj = capitalizeFirstLetter(data.translatedText);
-            englishP.innerText = translatedTextWithMaj;
+            englishP.innerText = translatedTextWithMaj+".";
             // Download the sound from the data.soundUrl url with $ .ajax
             // to make it play by the browser
             var audiotranslate = new Audio(data.soundUrl);
