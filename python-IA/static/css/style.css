@@ -26,7 +26,10 @@ h1 {
   width: 100%;
 }
 h3 {
-    color: white;
+    /* color: white; */
+    color: crimson;
+    margin-bottom: 10px;
+    font-weight: bolder;
 }
 
 .ctn {
@@ -124,6 +127,13 @@ h3 {
 }
 .ctn-translate p {
   font-size: 1rem;
+}
+#textSaid,
+#textTranslated {
+  color: teal;
+  text-align: justify;
+  font-size: medium;
+  font-weight: 700;
 }
 
 .gb {
