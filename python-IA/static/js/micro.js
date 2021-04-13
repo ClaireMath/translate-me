@@ -35,7 +35,6 @@ function startTheMike() {
     // Initialize recorder
     if (typeof navigator.mediaDevices.getUserMedia === "undefined") {
         navigator.getUserMedia({
-      {
                 audio: true,
             },
             streamHandler,
@@ -147,16 +146,16 @@ function stopTheMike() {
 translateButton.addEventListener("click", sendToTranslate);
 
 function sendToTranslate() {
-  if (blob == null) {
-    console.log("je suis dans le if blob == null");
-    window.alert("Veuillez enregistrer votre voix d'abord.");
-    return;
-  } else {
-    let soundFile = new File([blob], "sound");
-    let formData = new FormData();
-    //Adding files to the formdata
-    formData.append("sound", soundFile);
-    formData.append("upload_file", true);
+    if (blob == null) {
+        console.log("je suis dans le if blob == null");
+        window.alert("Veuillez enregistrer votre voix d'abord.");
+        return;
+    } else {
+        let soundFile = new File([blob], "sound");
+        let formData = new FormData();
+        //Adding files to the formdata
+        formData.append("sound", soundFile);
+        formData.append("upload_file", true);
 
         console.log("je crée le blob");
 
@@ -174,30 +173,25 @@ function sendToTranslate() {
             frenchP.innerText = data.originalText;
             let englishP = document.getElementById("textTranslated");
             englishP.innerText = data.translatedText;
-      // Télécharger le son depuis l'url data.soundUrl avec $.ajax
-      // Le faire jouer par le navigateur
-
             // Download the sound from the data.soundUrl url with $ .ajax
             // to make it play by the browser
-      var audiotranslate = new Audio(data.soundUrl);
-      audiotranslate.play();
+            var audiotranslate = new Audio(data.soundUrl);
+            audiotranslate.play();
 
+            downloadButton.addEventListener("click", downloadTranslatedSound);
 
-      // document.location.href=data.soundUrl;
-      // };
-      downloadButton.addEventListener("click", downloadTranslatedSound);
-function downloadTranslatedSound() {
-  if (blob == null) {
-    window.alert("Veuillez enregistrer votre voix d'abord.");
-    return;
-    var url2 = data.soundUrl;
-  } else {
-    var a = document.createElement("a");
-    document.body.appendChild(a);
-    a.style = "display: none";
-    a.href = url2;
-    a.download = "sample.wav";
-    a.click();
+            function downloadTranslatedSound() {
+                if (blob == null) {
+                    window.alert("Veuillez enregistrer votre voix d'abord.");
+                    return;
+                } else {
+                    var url2 = data.soundUrl;
+                    var a = document.createElement("a");
+                    document.body.appendChild(a);
+                    a.style = "display: none";
+                    a.href = url2;
+                    a.download = "sample.wav";
+                    a.click();
 
                 }
             }
@@ -207,21 +201,21 @@ function downloadTranslatedSound() {
 
 //////////
 
-var ar = document.getElementById("ar");
-ar.value = "Arabe";
+// var ar = document.getElementById("ar");
+// ar.value = "Arabe";
 
-var val = document.getElementById("ar").value;
-ar.addEventListener("select", changelanguage);
+// var val = document.getElementById("ar").value;
+// ar.addEventListener("select", changelanguage);
 
-function changelanguage(value) {
-    if (ar.value == "Arabe") {
-        console.log("Langue cible : arabe");
+// function changelanguage(value) {
+//     if (ar.value == "Arabe") {
+//         console.log("Langue cible : arabe");
 
-    } else {
-        console.log("Probleme");
-    }
+//     } else {
+//         console.log("Probleme");
+//     }
 
-}
+// }
 ///////////////
 
 function flattenArray(channelBuffer, recordingLength) {
