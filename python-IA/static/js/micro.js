@@ -169,10 +169,16 @@ function sendToTranslate() {
             console.log("je suis dans la promesse du ajax");
 
             // Using data.originalText & data.translatedText & display the texts to the user
+            // Function to get a majuscule to the first letter
+            function capitalizeFirstLetter(string) {
+              return string.charAt(0).toUpperCase() + string.slice(1);
+            }
             let frenchP = document.getElementById("textSaid");
-            frenchP.innerText = data.originalText;
+            let originalTextWithMaj = capitalizeFirstLetter(data.originalText);
+            frenchP.innerText = originalTextWithMaj;
             let englishP = document.getElementById("textTranslated");
-            englishP.innerText = data.translatedText;
+            let translatedTextWithMaj = capitalizeFirstLetter(data.translatedText);
+            englishP.innerText = translatedTextWithMaj;
             // Download the sound from the data.soundUrl url with $ .ajax
             // to make it play by the browser
             var audiotranslate = new Audio(data.soundUrl);
