@@ -25,7 +25,6 @@ navigator.getUserMedia =
 
 // Setting event listeners on my buttons :
 micro.addEventListener("click", startTheMike);
-
 function startTheMike() {
     leftchannel = [];
     rightchannel = [];
@@ -92,9 +91,10 @@ function errorHandler(e) {
     console.error(e);
 }
 
+// setting event listeners on the crossed mike
 microStop.addEventListener("click", stopTheMike);
-
 function stopTheMike() {
+  // changing the style of the mikes icons on click
     microStop.style.cssText = "display: none;";
     micro.style.cssText = "display: flex; border: solid white; padding: 5px;";
 
@@ -139,15 +139,14 @@ function stopTheMike() {
         index += 2;
     }
 
-    // our final blob
+    // our final blob ( = Binary Large Objects)
     blob = new Blob([view], { type: "audio/wav" });
 }
 
+// setting event listeners on our translate button
 translateButton.addEventListener("click", sendToTranslate);
-
 function sendToTranslate() {
     if (blob == null) {
-        console.log("je suis dans le if blob == null");
         window.alert("Veuillez enregistrer votre voix d'abord.");
         return;
     } else {
@@ -157,36 +156,39 @@ function sendToTranslate() {
         formData.append("sound", soundFile);
         formData.append("upload_file", true);
 
-        console.log("je crée le blob");
-
         $.ajax({
             type: "POST",
             url: apiUrl + "/translate",
+            // as we wanted to pass a sound in our XHR request,
+            // we needed the date to be of formdata format
             data: formData,
             processData: false,
             contentType: false,
+        // ajax's promiss    
         }).then(function(data) {
-            console.log("je suis dans la promesse du ajax");
 
             // Using data.originalText & data.translatedText & display the texts to the user
             // Function to get a majuscule to the first letter
             function capitalizeFirstLetter(string) {
               return string.charAt(0).toUpperCase() + string.slice(1);
             }
+            // display our text in French 
             let frenchP = document.getElementById("textSaid");
             let originalTextWithMaj = capitalizeFirstLetter(data.originalText);
             frenchP.innerText = originalTextWithMaj+".";
+            // display our text in English
             let englishP = document.getElementById("textTranslated");
             let translatedTextWithMaj = capitalizeFirstLetter(data.translatedText);
             englishP.innerText = translatedTextWithMaj+".";
             // Download the sound from the data.soundUrl url with $ .ajax
-            // to make it play by the browser
+            // to play it via the browser
             var audiotranslate = new Audio(data.soundUrl);
             audiotranslate.play();
-
+            
+            // setting an event listener on our download button
             downloadButton.addEventListener("click", downloadTranslatedSound);
-
             function downloadTranslatedSound() {
+              
                 if (blob == null) {
                     window.alert("Veuillez enregistrer votre voix d'abord.");
                     return;

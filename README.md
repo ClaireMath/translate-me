@@ -26,7 +26,6 @@ Ce projet a été développé sur 4 semaines durant l'année 2021 à l'occasion 
 
 Démo en ligne : 
 
-
 ------------------------
 
 
@@ -51,3 +50,4 @@ FONCTIONNALITÉS :
 - Translate
 - Text to Speech
 - (possibilité de télécharger sa traduction afin de la conserver pour plus tard)
+
