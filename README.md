@@ -45,7 +45,7 @@ Le projet a été développé à l'aide des langages :
 
 FONCTIONNALITÉS :
 
-- Speech to Text
+- Speech to Texte
 - Translate
-- Text to Speech
+- Texte to Speech
 - (possibilité de télécharger sa traduction afin de la conserver pour plus tard)
