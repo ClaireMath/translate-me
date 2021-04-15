@@ -23,10 +23,6 @@ Ce projet a été développé sur 4 semaines durant l'année 2021 à l'occasion 
 
 ------------------------
 
-Démo en ligne : 
-
-------------------------
-
 
 Le projet est terminé, mais toutes suggestions d'améliorations seraient la bienvenue.
 
