@@ -15,6 +15,7 @@ var mediaStream = null;
 var sampleRate = 44100;
 var context = null;
 var blob = null;
+var downloadUrl;
 
 // vendor prefixes to obtain user consent for older browsers
 navigator.getUserMedia =
@@ -156,10 +157,11 @@ function sendToTranslate() {
         formData.append("sound", soundFile);
         formData.append("upload_file", true);
 
+        // ajax request = (Asynchronous JavaScript And XML)
         $.ajax({
             type: "POST",
             url: apiUrl + "/translate",
-            // as we wanted to pass a sound in our XHR request,
+            // as we wanted to pass a sound in our XHR request (XmlHttpRequest),
             // we needed the date to be of formdata format
             data: formData,
             processData: false,
@@ -184,29 +186,31 @@ function sendToTranslate() {
             // to play it via the browser
             var audiotranslate = new Audio(data.soundUrl);
             audiotranslate.play();
-            
-            // setting an event listener on our download button
-            downloadButton.addEventListener("click", downloadTranslatedSound);
-            function downloadTranslatedSound() {
-              
-                if (blob == null) {
-                    window.alert("Veuillez enregistrer votre voix d'abord.");
-                    return;
-                } else {
-                    var url2 = data.soundUrl;
-                    var a = document.createElement("a");
-                    document.body.appendChild(a);
-                    a.style = "display: none";
-                    a.href = url2;
-                    a.download = "sample.wav";
-                    a.click();
+            downloadUrl = data.soundUrl
 
-                }
-            }
+            // setting an event listener on our download button
         });
+
     }
 }
 
+downloadButton.addEventListener("click", downloadTranslatedSound);
+function downloadTranslatedSound() {
+  
+    if (blob == null) {
+        window.alert("Veuillez enregistrer votre voix d'abord.");
+        return;
+    } else {
+        // var downloadUrl = data.soundUrl;
+        var a = document.createElement("a");
+        document.body.appendChild(a);
+        a.style = "display: none";
+        a.href = downloadUrl;
+        a.download = "sample.wav";
+        a.click();
+
+    }
+}
 //////////
 
 // var ar = document.getElementById("ar");
